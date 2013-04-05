@@ -1,4 +1,4 @@
-(defproject twsearch "0.1.0-SNAPSHOT"
+(defproject twsearch "0.2.0-SNAPSHOT"
   :description "a small clojure tool to dump twitter search networks"
   :url ""
   :license {:name "Eclipse Public License"

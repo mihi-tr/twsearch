@@ -76,7 +76,8 @@
           (send-off result-agent (partial pf (get sr "results")))
           (recur (get sr "refresh_url") 
                  (- n 1)))
-        (do 
+        (do
+          (println (deref result-agent))
           (await result-agent)
           (deref result-agent))))))
 
@@ -87,7 +88,6 @@
   (gui/create-gui (fn [x y z]
                     
                     (println (format "searching for %s dumping to %s" x z))
-                    (spit z "bla")
                     (searches x 1 :outfile z :forever false)
                     (println "done!")))
   (shutdown-agents))

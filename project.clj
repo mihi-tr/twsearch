@@ -6,6 +6,7 @@
   :dependencies [[org.clojure/clojure "1.4.0"]
     [gexf "0.1.0-SNAPSHOT"]
     [clj-http "0.6.5"]
-    [org.clojure/data.json "0.2.1"]]
+    [org.clojure/data.json "0.2.1"]
+    [seesaw "1.4.3"]]
   :main twsearch.core
   :disable-implicit-clean true)

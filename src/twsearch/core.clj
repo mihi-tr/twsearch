@@ -2,7 +2,8 @@
   (:gen-class)
   (:require [gexf.core :as gexf]
             [clojure.data.json :as json]
-            [clj-http.client :as http])
+            [clj-http.client :as http]
+            [twsearch.gui :as gui])
   (:import java.net.URLEncoder))
 
 (def api-base "https://search.twitter.com/")
@@ -68,6 +69,7 @@
                 (fn [x] true)
                 (partial <= 0))]
     (loop [url url n n]
+      (println url)
       (if (check n)
         (let [sr (twitter-search url)]
           (Thread/sleep 20000)
@@ -82,19 +84,11 @@
 
 (defn -main 
   [& args]
-  (let [args (into [] args)
-        term (get args 0)
-        n (java.lang.Integer/parseInt (get args 1))
-        outfile (get args 2)]
-    (println (format "Searching for %s %s" 
-                     term
-                     (if (== 0 n)
-                       "forever"
-                       (format "%s times" n))))
-    (searches term 
-              n
-              :outfile outfile
-              :forever (== 0 n))
-    (println "done, shutting-down")
-    (shutdown-agents)))
+  (gui/create-gui (fn [x y z]
+                    
+                    (println (format "searching for %s dumping to %s" x z))
+                    (spit z "bla")
+                    (searches x 1 :outfile z :forever false)
+                    (println "done!")))
+  (shutdown-agents))
   

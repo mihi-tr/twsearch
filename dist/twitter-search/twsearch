@@ -1,3 +1,2 @@
 #!/bin/bash
-echo $1
 java -jar twsearch.jar $1 $2 $3

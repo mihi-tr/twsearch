@@ -10,7 +10,7 @@ active hashtags.
 ```
 
 If you don't want leiningen, grab the
-[jarfile](raw/master/dist/twitter-search/twsearch.jar) and run with 
+[jarfile](https://github.com/mihi-tr/twsearch/raw/master/dist/twitter-search/twsearch.jar) and run with 
 
 ```
 java -jar twsearch.jar <term> <number of searches> outfile.gexf
